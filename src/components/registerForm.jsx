@@ -1,8 +1,9 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 import Joi from 'joi-browser';
 import Form from "./common/form";
 import * as userService from "../services/userService";
-import { loginWithJWT } from '../services/authService';
+import { loginWithJWT, getCurrentUser } from '../services/authService';
 
 class RegisterForm extends Form {
     state={
@@ -31,6 +32,7 @@ class RegisterForm extends Form {
         }
     }
     render() {
+        if (getCurrentUser()) return <Redirect to='/' />
         return (
         <div>
             <h1>Sign up</h1>

@@ -11,6 +11,7 @@ import MovieForm from './components/movieForm';
 import LoginForm from './components/loginForm';
 import RegisterForm from './components/registerForm';
 import Logout from './components/logout';
+import ProtectedRoute from './components/common/protectedRoute';
 import { getCurrentUser } from './services/authService';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
@@ -23,6 +24,7 @@ class App extends Component {
     this.setState({ user })
   }
   render() {
+    const { user } = this.state;
     return (
       <React.Fragment>
         <NavBar user={this.state.user}/>
@@ -32,8 +34,8 @@ class App extends Component {
             <Route path='/register' component={RegisterForm}/>
             <Route path='/login' component={LoginForm}/>
             <Route path='/logout' component={Logout}/>
-            <Route path='/movies/:id' component={MovieForm}/>
-            <Route path="/movies" component={FetchMovies}></Route>
+            <ProtectedRoute path='/movies/:id' component={MovieForm} />
+            <Route path="/movies" render={props => <FetchMovies {...props} user={user} />} ></Route>
             <Route path="/customers" component={Customers}></Route>
             <Route path="/rentals" component={Rentals}></Route>
             <Route path="/not-found" component={NotFound}></Route>

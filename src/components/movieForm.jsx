@@ -52,7 +52,7 @@ class MovieForm extends Form {
         this.props.history.push('/movies');
     }
     render() { 
-        const {match, history} = this.props;
+        const { match } = this.props;
         return ( 
             <div>
                 <h1>Movie Form {match.params.id} </h1>

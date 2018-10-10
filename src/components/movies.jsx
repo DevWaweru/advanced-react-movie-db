@@ -77,7 +77,7 @@ class FetchMovies extends Component {
   render() {
     const { length: count } = this.state.movies;
     const { currentPage, pageSize, sortColumn, searchQuery } = this.state;
-    if (count === 0) return <p className="text-center">There are no movies in the database</p>;
+    const { user } = this.props;
 
     const { totalCount, data: movies } = this.getPagedData();
     return (
@@ -91,10 +91,10 @@ class FetchMovies extends Component {
               />
             </div>
             <div className="col">
-              <Link to='/movies/new' className='btn btn-primary mb-2'>New Movie</Link>
+              {user && <Link to='/movies/new' className='btn btn-primary mb-2'>New Movie</Link>}
               <SearchBox value={searchQuery} onChange={this.handleSearch} />
               <p className="mt-4">Showing {totalCount} movies in the database </p>
-              <MovieTable movies={movies} onDelete={this.handleDelete} onLike={this.handleLike} onSort={this.handleSort} sortColumn={sortColumn}/>
+              <MovieTable movies={movies} onDelete={this.handleDelete} onLike={this.handleLike} onSort={this.handleSort} sortColumn={sortColumn} />
               <Pagination itemsCount={totalCount} pageSize={pageSize} onPageChange={this.handlePageChange} currentPage={currentPage} />
             </div>
           </div>

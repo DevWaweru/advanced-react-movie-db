@@ -31,14 +31,16 @@ class LoginForm extends Form {
     render() {
         if (getCurrentUser()) return <Redirect to='/'/>
         return (
-        <div>
-            <h1>Login</h1>
-            <form onSubmit={this.handleSubmit}>
-                {this.renderInput('username','Username')}
-                {this.renderInput('password','Password', 'password')}
-                {this.renderButton('Login')}
-            </form>
-        </div>
+            <div className='row auth-form'>
+                <div className='col-md-4'>
+                    <h1 className='text-center'>Login</h1>
+                    <form onSubmit={this.handleSubmit}>
+                        {this.renderInput('username','Username')}
+                        {this.renderInput('password','Password', 'password')}
+                        {this.renderButton('Login')}
+                    </form>
+                </div>
+            </div>
         );
     }
 }

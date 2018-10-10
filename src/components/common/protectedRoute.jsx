@@ -10,8 +10,9 @@ const ProtectedRoute = ({ component: Component, render, ...rest}) => {
                 state: {from: props.location}
             }}/>
             return Component ? <Component {...props} /> : render(props);
-            } } />
-        );
+            } 
+        } />
+    );
 }
  
 export default ProtectedRoute;

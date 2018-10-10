@@ -25,6 +25,7 @@ class FetchMovies extends Component {
     const { data: movies } = await getMovies();
     const genres = [{ name: 'All Genres' , _id:'' }, ...data]
     this.setState({ movies, genres });
+    
   }
   handleDelete = async movie => {
     const originalMovies = this.state.movies;
@@ -75,7 +76,7 @@ class FetchMovies extends Component {
     return { totalCount: filtered.length, data: movies }
   }
   render() {
-    const { length: count } = this.state.movies;
+    // const { length: count } = this.state.movies;
     const { currentPage, pageSize, sortColumn, searchQuery } = this.state;
     const { user } = this.props;
 

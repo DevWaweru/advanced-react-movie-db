@@ -11,3 +11,8 @@ body {
 .clickable {
   cursor: pointer;
 }
+
+.auth-form{
+  display: flex;
+  justify-content: center;
+}

@@ -34,15 +34,17 @@ class RegisterForm extends Form {
     render() {
         if (getCurrentUser()) return <Redirect to='/' />
         return (
-        <div>
-            <h1>Sign up</h1>
-            <form onSubmit={this.handleSubmit}>
-                {this.renderInput('email','Email')}
-                {this.renderInput('password','Password', 'password')}
-                {this.renderInput('username','Username')}
-                {this.renderButton('Register')}
-            </form>
-        </div>
+            <div className='row auth-form'>
+                <div className='col-md-4'>
+                    <h1 className='text-center'>Sign up</h1>
+                    <form onSubmit={this.handleSubmit}>
+                        {this.renderInput('email','Email')}
+                        {this.renderInput('password','Password', 'password')}
+                        {this.renderInput('username','Username')}
+                        {this.renderButton('Register')}
+                    </form>
+                </div>
+            </div>
         );
     }
 }

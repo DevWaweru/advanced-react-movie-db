@@ -8,7 +8,5 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css';
 // import FetchMovies from './components/movies';
 
-console.log(process.env);
-
 ReactDOM.render( <BrowserRouter><App/></BrowserRouter> , document.getElementById('root'));
 registerServiceWorker();

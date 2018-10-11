@@ -3,6 +3,7 @@ import httpService from "./httpService";
 function movieUrl(id){
     return `/movies/${id}`;
 }
+
 export function getMovies() {
     return httpService.get(`/movies`);
 }
